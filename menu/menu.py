@@ -3,6 +3,7 @@ import sys
 
 import aliens_invasion.alien_invasion_py
 import bird.bird
+import mini_pingpong.ping_pong
 from buttons import Button
 
 
@@ -38,6 +39,10 @@ def run_menu():
                 elif bird_button.rect.collidepoint(mouse_x, mouse_y):
                     pygame.quit()
                     bird.bird.run_bird()
+                    sys.exit()
+                elif pingpong_button.rect.collidepoint(mouse_x, mouse_y):
+                    pygame.quit()
+                    mini_pingpong.ping_pong.run_pingpong()
                     sys.exit()
 
         draw_bg(screen)
