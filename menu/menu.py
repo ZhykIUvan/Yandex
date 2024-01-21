@@ -2,6 +2,7 @@ import pygame
 import sys
 
 import aliens_invasion.alien_invasion_py
+import bird.bird
 from buttons import Button
 
 
@@ -12,6 +13,8 @@ def run_menu():
     pygame.display.set_caption('menu')
 
     aliens_button = Button(screen, 'Вторжение пришельцев', 320, 170, 420, 70)
+    bird_button = Button(screen, 'Летящая птичка', 320, 360, 420, 70)
+    pingpong_button = Button(screen, 'Мини пинг-понг', 320, 550, 420, 70)
     exit_button = Button(screen, 'Выход', 960, 360, 210, 70)
 
     def draw_bg(screen):
@@ -32,9 +35,15 @@ def run_menu():
                 elif exit_button.rect.collidepoint(mouse_x, mouse_y):
                     pygame.quit()
                     sys.exit()
+                elif bird_button.rect.collidepoint(mouse_x, mouse_y):
+                    pygame.quit()
+                    bird.bird.run_bird()
+                    sys.exit()
 
         draw_bg(screen)
         aliens_button.draw()
+        bird_button.draw()
+        pingpong_button.draw()
         exit_button.draw()
 
         pygame.display.flip()
